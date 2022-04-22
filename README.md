@@ -1,15 +1,18 @@
-# Basic Sample Hardhat Project
+# Arcana Standard Contracts
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project contains ERC standard contracts with Arcana supported functions.
 
-Try running some of the following tasks:
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+## Contracts
+
+### ARC721: 
+
+This ARC721 is a standard for representing ownership of non-fungible tokens, that is, where each token is unique. Which is compatible with ERC721 interface.
+
+**Minting** : Use _mint_ function to create new tokens. function accepts receipent _Address_ and _token Id_ of newly minted token.
+
+
+
+
+
+
