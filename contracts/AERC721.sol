@@ -5,16 +5,23 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+interface IBridge {
+    function transferData(address _to , address _NFTContractAddress, uint _tokenId) external;
+}
+
 contract ARC721 is ERC721, Ownable {
     string _baseTokenURI;
+    address bridgeAddress;
 
     constructor(
         string memory _name,
         string memory _symbol,
-        string memory _baseUri
+        string memory _baseUri,
+        address _bridgeAddress
     ) ERC721(_name, _symbol) {
         _transferOwnership(msg.sender);
         setBaseTokenURI(_baseUri);
+        bridgeAddress = _bridgeAddress;
     }
 
     function mint(address to, uint256 tokenId)
@@ -27,13 +34,13 @@ contract ARC721 is ERC721, Ownable {
         return tokenId;
     }
 
-    function _beforeTokenTransfer(
+    function _afterTokenTransfer(
         address from,
         address to,
         uint256 tokenId
     ) internal virtual override {
-        super._beforeTokenTransfer(from, to, tokenId);
-        //TODO: Call bridge handler contract
+        super._afterTokenTransfer(from, to, tokenId);
+        IBridge(bridgeAddress).transferData(to, address(this), tokenId);
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
@@ -42,5 +49,9 @@ contract ARC721 is ERC721, Ownable {
 
     function setBaseTokenURI(string memory uri) public onlyOwner {
         _baseTokenURI = uri;
+    }
+
+    function setBridgeAddress(address _bridgeAddress) public onlyOwner {
+        bridgeAddress = _bridgeAddress;
     }
 }
