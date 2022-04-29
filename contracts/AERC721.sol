@@ -10,6 +10,9 @@ interface IBridge {
 }
 
 contract ARC721 is ERC721, Ownable {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
+
     string _baseTokenURI;
     address bridgeAddress;
 
@@ -24,13 +27,16 @@ contract ARC721 is ERC721, Ownable {
         bridgeAddress = _bridgeAddress;
     }
 
-    function mint(address to, uint256 tokenId)
+    function mint(address _to)
         public
         onlyOwner
         returns (uint256)
     {
-        require(!_exists(tokenId), "Token already exists");
-        _mint(to, tokenId);
+        _tokenIds.increment();
+        
+        uint256 tokenId = _tokenIds.current();
+        _mint(_to, tokenId);
+
         return tokenId;
     }
 
