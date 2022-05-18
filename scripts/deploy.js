@@ -15,11 +15,11 @@ async function main() {
 
   // We get the contract to deploy
   const ARC721_factory = await hre.ethers.getContractFactory("ARC721");
-  const ARC721 = await ARC721_factory.deploy("XAR", "NFT", "sample.url.com/");
+  const ARC721 = await ARC721_factory.deploy("XAR", "NFT");
 
   await ARC721.deployed();
 
-  console.log("Greeter deployed to:", ARC721.address);
+  console.log("NFT Contract deployed to:", ARC721.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
