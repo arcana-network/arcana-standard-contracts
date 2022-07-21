@@ -14,6 +14,12 @@ AERC721 is similar to standard ERC721 with one execption with hook method _befor
 
 ## Usage
 
+Install dependencies
+
+```bash
+npm i
+```
+
 ### Deploy to mumbai network
 
 The contract in directly is ownable NFT collection i.e. Only deployer can mint the NFT. 
@@ -27,7 +33,7 @@ The contract in directly is ownable NFT collection i.e. Only deployer can mint t
 Run below command in project root directory
 
 ```bash
-npx run scripts/deploy.js --network mumbai
+npx hardhat run scripts/deploy.js --network mumbai
 
 ```
 
