@@ -7,9 +7,9 @@ This project contains ERC standard contracts with Arcana supported functions.
 
 ### AERC721: 
 
-This ARC721 is a standard for representing ownership of non-fungible tokens, that is, where each token is unique. Which is compatible with ERC721 interface. 
+The ARC721 is a standard set of interfaces for issuing non-fungible tokens for NFTs residing on Arcana Network. It is fully compatible with the standard [ERC721](https://docs.openzeppelin.com/contracts/3.x/erc721)) interface. 
 
-AERC721 is similar to standard ERC721 with one execption with hook method _beforeTokenTransfer_ which has call to bridge contract. Bridge allows arcana network to listen for mint/transfer operation happened on-chain(i.e. mumbai/ropsten).  
+AERC721 is similar to standard ERC721 with just one execption. There is an additional hook method `_beforeTokenTransfer_`. This method is added to initiate a call to Arcana Network bridge contract. Bridge allows Arcana Network to listen for NFT mint/transfer on-chain operations that happen on the supported chains. Currently, Mumbai and Ropsten are supported.
 
 
 ## Usage
@@ -20,26 +20,26 @@ Install dependencies
 npm i
 ```
 
-### Deploy to mumbai network
+### Deploy to Mumbai Network
 
 The contract in directly is ownable NFT collection i.e. Only deployer can mint the NFT. 
 
-**ENV Variables** : 
+**Environment Variables:**
 - CONTRACT_OWNER : Contract deployer account having funds on Polygon MUMBAI network
-- MUMBAI_URL : Polygon mumbai chain rpc url
+MUMBAI_URL: Polygon Mumbai chain RPC URL
 - NFT_COLLECTION_NAME : NFT collection name for marketplaces/explorer
 - NFT_COLLECTION_SYMBOL: NFT collection symbol for marketplaces/explorer
 
-Run below command in project root directory
+In the project root directory, execute the following command:
 
 ```bash
 npx hardhat run scripts/deploy.js --network mumbai
 
 ```
 
-### What if I want _customised/flavoured_ NFT Contract
+### How to customize NFT Contract
 
-Developer can customised the NFT contract as per their need just need to make sure include a bridge call in the contract that enable Arcana network to listen for NFT transfers.
+You can customize the NFT contract as per your needs. Make sure that you do not miss to include the `bridge call` in the contract. This call enables Arcana Network to listen for NFT transfers and record any ownership changes.
 
 ```ts
 
