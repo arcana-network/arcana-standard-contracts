@@ -16,10 +16,22 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
+
+let deployer = process.env.CONTRACT_OWNER || "",
+    mumbai_url = process.env.MUMBAI_URL || "";
+
 module.exports = {
   solidity: "0.8.4",
   defaultNetwork: "hardhat",
   networks: {
-    hardhat: {}
+    hardhat: {},
+    mumbai: {
+      url: mumbai_url,
+      chainId: 1337,
+      accounts: [deployer]
+    }    
+
+
   }
+
 };
