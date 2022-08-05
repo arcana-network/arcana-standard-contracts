@@ -27,7 +27,7 @@ module.exports = {
     hardhat: {},
     mumbai: {
       url: mumbai_url,
-      chainId: 1337,
+      chainId: 80001,
       accounts: [deployer]
     }    
 
