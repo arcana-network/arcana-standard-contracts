@@ -10,7 +10,7 @@ async function main() {
     const AERC721_factory = await hre.ethers.getContractFactory("AERC721");
     const AERC721 = await AERC721_factory.attach(nftContractAddress)
 
-    let tx = await AERC721.mint(to, tokenId);
+    let tx = await AERC721.mint(to, tokenId, tokenUri);
     await tx.wait();
 
     console.log(`Minted token ${tokenId} \nto ${to}`);
