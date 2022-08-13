@@ -1,5 +1,11 @@
 <p align="center">
 <a href="#start"><img height="30rem" src="https://raw.githubusercontent.com/arcana-network/branding/main/an_logo_light_temp.png"/></a>
+</p>
+<p align="center">
+<a title="MIT License" href="https://github.com/arcana-network/license/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue"/></a>
+<a title="Beta release" href="https://github.com/arcana-network/demo-app/releases"><img src="https://img.shields.io/github/v/release/arcana-network/demo-app?style=flat-square&color=28A745"/></a>
+<a title="Twitter" href="https://twitter.com/ArcanaNetwork"><img alt="Twitter URL" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FArcanaNetwork"/></a>
+</p>
 
 # Arcana Standard Contracts
 
