@@ -1,4 +1,4 @@
-<p align="center">
+<p>
 <a href="#start"><img height="30rem" src="https://raw.githubusercontent.com/arcana-network/branding/main/an_logo_light_temp.png"/></a>
 </p>
 <p align="center">
