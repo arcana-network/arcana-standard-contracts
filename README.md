@@ -46,6 +46,7 @@ The contract in directly is ownable NFT collection i.e. Only deployer can mint t
 **Environment Variables:**
 CONTRACT_OWNER : The contract deployer's private key associated with their public account. Make sure the account holds sufficient funds on the [chain](#supported-chains] where this collection is to be created.
 MUMBAI_URL: Polygon Mumbai chain RPC URL
+ROPSTEN_URL:  TBD
 - NFT_COLLECTION_NAME : NFT collection name for marketplaces/explorer
 - NFT_COLLECTION_SYMBOL: NFT collection symbol for marketplaces/explorer
 
