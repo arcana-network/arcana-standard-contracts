@@ -18,7 +18,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
 
 let deployer = process.env.CONTRACT_OWNER || "",
-    mumbai_url = process.env.MUMBAI_URL || "";
+    mumbai_url = process.env.MUMBAI_URL || "",
+    ropsten_url =  process.env.ROPSTEN_URL || "";
 
 module.exports = {
   solidity: "0.8.4",
@@ -28,6 +29,11 @@ module.exports = {
     mumbai: {
       url: mumbai_url,
       chainId: 80001,
+      accounts: [deployer]
+    },
+    ropsten: {
+      url: ropsten_url,
+      chainId: 3,
       accounts: [deployer]
     }    
 
