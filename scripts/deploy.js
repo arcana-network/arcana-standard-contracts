@@ -1,11 +1,23 @@
-
 const hre = require("hardhat");
 
 async function main() {
- 
+
   const Name = process.env.NFT_COLLECTION_NAME || "DEMO",
-  Symbol = process.env.NFT_COLLECTION_SYMBOL || "DEMO",
-  bridge = "0x2a6137D49A5597aC3b26B7464Edf20A553291584" 
+    Symbol = process.env.NFT_COLLECTION_SYMBOL || "DEMO";
+
+  let bridge;
+
+  switch (hre.network.config.chainId) {
+    case 3:
+      bridge = "0x491f0c066F6e126A34F57346613db5628B41ba18"; 
+      break;
+    case 80001:
+      bridge = "0x2a6137D49A5597aC3b26B7464Edf20A553291584";
+      break;
+
+    default:
+      throw new Error("Unsupported network! please pass mumbai or ropsten");
+  }
 
   // We get the contract to deploy
   const AERC721_factory = await hre.ethers.getContractFactory("AERC721");
