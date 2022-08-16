@@ -40,7 +40,6 @@ After installation, you can deploy it to the supported chains and then customize
 
 ### Deployment
 
-#### MUMBAI Testnet
 
 The contract in directly is ownable NFT collection i.e. Only deployer can mint the NFT.
 
